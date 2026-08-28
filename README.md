@@ -43,4 +43,4 @@ AI Resume Analyzer and Optimizer is a Flask-based web application that helps use
 1. Clone the repository:
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_LINK
+git clone https://github.com/HemaNavyaSri/AI-Resume-Analyzer-and-Optimizer.git
