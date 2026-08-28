@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<section class="page-header">
+
+    <p>
+        ANALYSIS RESULT
+    </p>
+
+    <h1>
+        Resume Analysis Report
+    </h1>
+
+</section>
+
+
+
+<div class="results-container">
+
+
+    <div class="score-card">
+
+        <h2>
+            {{ result.match_score }}%
+        </h2>
+
+        <p>
+            Overall Match Score
+        </p>
+
+    </div>
+
+
+
+    <div class="score-grid">
+
+
+        <div class="small-score-card">
+
+            <h3>
+                {{ result.text_match_score }}%
+            </h3>
+
+            <p>
+                Text Similarity
+            </p>
+
+        </div>
+
+
+
+        <div class="small-score-card">
+
+            <h3>
+                {{ result.skill_match_score }}%
+            </h3>
+
+            <p>
+                Skill Match
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="recommendation-card">
+
+        <h3>
+            AI Recommendation
+        </h3>
+
+        <p>
+            {{ result.recommendation }}
+        </p>
+
+    </div>
+
+
+
+    <div class="result-section">
+
+        <h2>
+            Matching Skills
+        </h2>
+
+
+        {% if result.matching_skills %}
+
+            <div class="skills">
+
+                {% for skill in result.matching_skills %}
+
+                    <span class="skill match">
+                        {{ skill }}
+                    </span>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <p>
+                No matching technical skills were detected.
+            </p>
+
+        {% endif %}
+
+    </div>
+
+
+
+    <div class="result-section">
+
+        <h2>
+            Missing Skills
+        </h2>
+
+
+        {% if result.missing_skills %}
+
+            <div class="skills">
+
+                {% for skill in result.missing_skills %}
+
+                    <span class="skill missing">
+                        {{ skill }}
+                    </span>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <p>
+                No missing skills were detected.
+            </p>
+
+        {% endif %}
+
+    </div>
+
+
+
+    <div class="result-section">
+
+        <h2>
+            Skills Found in Your Resume
+        </h2>
+
+
+        {% if result.resume_skills %}
+
+            <div class="skills">
+
+                {% for skill in result.resume_skills %}
+
+                    <span class="skill neutral">
+                        {{ skill }}
+                    </span>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <p>
+                No predefined technical skills were detected.
+            </p>
+
+        {% endif %}
+
+    </div>
+
+
+
+    <div class="result-actions">
+
+        <a
+            href="{{ url_for('analyzer') }}"
+            class="secondary-btn"
+        >
+            Analyze Another Resume
+        </a>
+
+
+        <a
+            href="{{ url_for('optimizer') }}"
+            class="primary-btn"
+        >
+            Optimize Resume
+        </a>
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}
