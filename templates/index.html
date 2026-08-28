@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="tag">
+            AI POWERED CAREER TOOL
+        </p>
+
+        <h1>
+            Build a Better Resume
+            <span>with AI</span>
+        </h1>
+
+        <p class="hero-text">
+
+            Analyze your resume against a job description,
+            discover missing skills, calculate a match score,
+            and create a job-tailored resume.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="{{ url_for('analyzer') }}"
+                class="primary-btn"
+            >
+                Analyze Resume
+            </a>
+
+
+            <a
+                href="{{ url_for('optimizer') }}"
+                class="secondary-btn"
+            >
+                Optimize Resume
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="features">
+
+    <div class="section-title">
+
+        <p>
+            FEATURES
+        </p>
+
+        <h2>
+            Everything You Need
+            for Your Resume
+        </h2>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                📄
+            </div>
+
+            <h3>
+                Resume Analysis
+            </h3>
+
+            <p>
+                Upload your PDF resume and compare it
+                with your target job description.
+            </p>
+
+        </div>
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🎯
+            </div>
+
+            <h3>
+                Match Score
+            </h3>
+
+            <p>
+                Get a resume-to-job match score using
+                text similarity and skill matching.
+            </p>
+
+        </div>
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🧠
+            </div>
+
+            <h3>
+                Skill Detection
+            </h3>
+
+            <p>
+                Identify matching skills and missing
+                technical skills from the job description.
+            </p>
+
+        </div>
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                📥
+            </div>
+
+            <h3>
+                Resume Generator
+            </h3>
+
+            <p>
+                Generate and download a job-tailored
+                professional resume as a PDF.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+{% endblock %}
