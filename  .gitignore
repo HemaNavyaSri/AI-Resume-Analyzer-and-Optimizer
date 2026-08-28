@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.DS_Store
+
+uploads/*.pdf
+generated_resumes/*.pdf
+
+.venv/
+venv/
+env/
+
+.idea/
+.vscode/
