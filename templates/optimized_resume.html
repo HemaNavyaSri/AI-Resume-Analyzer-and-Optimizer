@@ -1,0 +1,295 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<section class="page-header">
+
+    <p>
+        OPTIMIZED RESUME
+    </p>
+
+    <h1>
+        Your Job-Tailored Resume
+    </h1>
+
+</section>
+
+
+
+<div class="detected-skills-container">
+
+    <h2>
+        Skills Detected from Job Description
+    </h2>
+
+
+    {% if resume.detected_skills %}
+
+        <div class="skills">
+
+            {% for skill in resume.detected_skills %}
+
+                <span class="skill match">
+                    {{ skill }}
+                </span>
+
+            {% endfor %}
+
+        </div>
+
+    {% else %}
+
+        <p>
+            No predefined technical skills were detected.
+        </p>
+
+    {% endif %}
+
+</div>
+
+
+
+<div class="resume-preview">
+
+
+    <div class="resume-header">
+
+        <h1>
+            {{ resume.name }}
+        </h1>
+
+        <p>
+
+            {{ resume.email }}
+
+            {% if resume.phone %}
+                | {{ resume.phone }}
+            {% endif %}
+
+            {% if resume.location %}
+                | {{ resume.location }}
+            {% endif %}
+
+        </p>
+
+
+        {% if resume.linkedin %}
+
+            <p>
+                {{ resume.linkedin }}
+            </p>
+
+        {% endif %}
+
+
+        {% if resume.github %}
+
+            <p>
+                {{ resume.github }}
+            </p>
+
+        {% endif %}
+
+    </div>
+
+
+
+    {% if resume.skills %}
+
+        <div class="resume-section">
+
+            <h2>
+                TECHNICAL SKILLS
+            </h2>
+
+            <p>
+                {{ resume.skills | join(" • ") }}
+            </p>
+
+        </div>
+
+    {% endif %}
+
+
+
+    {% if resume.experience %}
+
+        <div class="resume-section">
+
+            <h2>
+                EXPERIENCE
+            </h2>
+
+            <p class="multiline">
+                {{ resume.experience }}
+            </p>
+
+        </div>
+
+    {% endif %}
+
+
+
+    {% if resume.projects %}
+
+        <div class="resume-section">
+
+            <h2>
+                PROJECTS
+            </h2>
+
+            <p class="multiline">
+                {{ resume.projects }}
+            </p>
+
+        </div>
+
+    {% endif %}
+
+
+
+    {% if resume.education %}
+
+        <div class="resume-section">
+
+            <h2>
+                EDUCATION
+            </h2>
+
+            <p class="multiline">
+                {{ resume.education }}
+            </p>
+
+        </div>
+
+    {% endif %}
+
+
+
+    {% if resume.achievements %}
+
+        <div class="resume-section">
+
+            <h2>
+                CERTIFICATIONS & ACHIEVEMENTS
+            </h2>
+
+            <p class="multiline">
+                {{ resume.achievements }}
+            </p>
+
+        </div>
+
+    {% endif %}
+
+
+</div>
+
+
+
+<form
+    method="POST"
+    action="{{ url_for('download_resume') }}"
+>
+
+
+    <input
+        type="hidden"
+        name="name"
+        value="{{ resume.name }}"
+    >
+
+
+    <input
+        type="hidden"
+        name="email"
+        value="{{ resume.email }}"
+    >
+
+
+    <input
+        type="hidden"
+        name="phone"
+        value="{{ resume.phone }}"
+    >
+
+
+    <input
+        type="hidden"
+        name="linkedin"
+        value="{{ resume.linkedin }}"
+    >
+
+
+    <input
+        type="hidden"
+        name="github"
+        value="{{ resume.github }}"
+    >
+
+
+    <input
+        type="hidden"
+        name="location"
+        value="{{ resume.location }}"
+    >
+
+
+    <input
+        type="hidden"
+        name="education"
+        value="{{ resume.education }}"
+    >
+
+
+    <input
+        type="hidden"
+        name="projects"
+        value="{{ resume.projects }}"
+    >
+
+
+    <input
+        type="hidden"
+        name="experience"
+        value="{{ resume.experience }}"
+    >
+
+
+    <input
+        type="hidden"
+        name="achievements"
+        value="{{ resume.achievements }}"
+    >
+
+
+    {% for skill in resume.skills %}
+
+        <input
+            type="hidden"
+            name="skills"
+            value="{{ skill }}"
+        >
+
+    {% endfor %}
+
+
+
+    <div class="download-area">
+
+        <button
+            type="submit"
+            class="primary-btn"
+        >
+            Download Resume as PDF
+        </button>
+
+    </div>
+
+
+</form>
+
+
+{% endblock %}
