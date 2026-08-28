@@ -1,0 +1,249 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<section class="page-header">
+
+    <p>
+        AI RESUME OPTIMIZER
+    </p>
+
+    <h1>
+        Create a Job-Tailored Resume
+    </h1>
+
+    <span>
+        Enter your details and the job description.
+        The system automatically detects relevant skills.
+    </span>
+
+</section>
+
+
+
+<div class="form-container large-form">
+
+    <form
+        method="POST"
+    >
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label>
+                    Full Name *
+                </label>
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Email Address *
+                </label>
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="example@email.com"
+                    required
+                >
+
+            </div>
+
+        </div>
+
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label>
+                    Phone Number
+                </label>
+
+                <input
+                    type="text"
+                    name="phone"
+                    placeholder="+91 XXXXX XXXXX"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Location
+                </label>
+
+                <input
+                    type="text"
+                    name="location"
+                    placeholder="Bangalore, India"
+                >
+
+            </div>
+
+        </div>
+
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label>
+                    LinkedIn
+                </label>
+
+                <input
+                    type="text"
+                    name="linkedin"
+                    placeholder="LinkedIn profile link"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    GitHub
+                </label>
+
+                <input
+                    type="text"
+                    name="github"
+                    placeholder="GitHub profile link"
+                >
+
+            </div>
+
+        </div>
+
+
+
+        <div class="form-group">
+
+            <label>
+                Your Existing Skills
+            </label>
+
+            <input
+                type="text"
+                name="existing_skills"
+                placeholder="Example: Python, Flask, Machine Learning"
+            >
+
+            <small>
+                Separate your skills using commas.
+            </small>
+
+        </div>
+
+
+
+        <div class="form-group">
+
+            <label>
+                Education
+            </label>
+
+            <textarea
+                name="education"
+                placeholder="Example: B.Tech in Computer Science and Engineering (AI & ML), XYZ University, 2023-2027, CGPA: 7.8"
+            ></textarea>
+
+        </div>
+
+
+
+        <div class="form-group">
+
+            <label>
+                Projects
+            </label>
+
+            <textarea
+                name="projects"
+                placeholder="Enter your projects and descriptions. You can use separate lines for each project."
+            ></textarea>
+
+        </div>
+
+
+
+        <div class="form-group">
+
+            <label>
+                Experience / Internship
+            </label>
+
+            <textarea
+                name="experience"
+                placeholder="Enter internship or work experience details."
+            ></textarea>
+
+        </div>
+
+
+
+        <div class="form-group">
+
+            <label>
+                Certifications & Achievements
+            </label>
+
+            <textarea
+                name="achievements"
+                placeholder="Enter your certifications and achievements."
+            ></textarea>
+
+        </div>
+
+
+
+        <div class="form-group">
+
+            <label>
+                Target Job Description *
+            </label>
+
+            <textarea
+                name="job_description"
+                placeholder="Paste the complete job description here. Relevant technical skills will be automatically detected."
+                required
+            ></textarea>
+
+        </div>
+
+
+
+        <button
+            type="submit"
+            class="primary-btn full-btn"
+        >
+            Generate Optimized Resume
+        </button>
+
+
+    </form>
+
+</div>
+
+
+{% endblock %}
